@@ -1,0 +1,21 @@
+@startmindmap
+!include config.puml
+
+title Purpose of Business Epics and Architectural Steel Thread
+* <b>Problem at hand
+
+Left Side
+**  Domain level scope not completely understood - What is the full pie?
+*** Workstream level scope not completely understood - What is the share of the pie?
+**** Architectural and Engineering oprtimization not happening
+**** Incremental business value not demonstrated
+**** Velocity not clear 
+**** Velocity is not fast enough
+
+Right Side
+
+** Solution
+*** Architetcure team to identify Business Epics
+*** Architetcural steelthread to complete business epics
+** Aligning teams with approach
+@endmindmap

@@ -1,0 +1,61 @@
+@startmindmap
+!include config.puml
+
+title Purpose of Business Epics and Architectural Steel Thread
+* <b><size 20> Product
+
+Left Side
+ * Categories
+  * Home & Personal Care
+  * Packaged & Speciality
+  * Impulse
+  * Dairy
+  * Frozen Foods
+  * BWS
+  * Bakery
+  * Meal Solutions
+  * MFP
+  * Home & Lifestyle
+  * Veg, Salad & Fruit
+  * Pharmacy
+
+Right Side
+ * New SKU Setup
+  * Access management
+   * External users
+   * Internal users
+
+ * SKU Maintenance
+  * Access management
+   * External users 
+   * Internal users
+  
+  * SKU Update
+ 
+ * SKU Lifecycle
+  * SKU Retire
+
+ * Data Services Platform (100% SKU)
+  * Data sources 
+   * Legacy data sources
+   * Brandbank
+   * Virtual Depot
+   * Cubiscan
+
+  * Access method
+   * Pull-based\n(REST)
+   * Push-based\n(Events and Streaming)
+
+ * Data cut-over\n(migration to new platform)
+
+ * Measurement
+  * Data Quality
+   * Rules based Engine
+   * Reporting
+
+ * Cross-cutting across workstreams
+  * Reporting of events stream 
+  * Landing in Data lake
+
+
+@endmindmap

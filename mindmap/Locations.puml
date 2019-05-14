@@ -1,0 +1,39 @@
+@startmindmap
+* Locations
+** Master Data
+*** Maintenance Activities (Done only in RMS) 
+**** Location Channel Management
+**** Customer Visit enabled
+***** Mains 
+***** Locals
+**** Customer Visit not enabled
+***** PFS 
+***** Restaurants / Cafe
+***** Store Maintanence
+***** Depot Maintenance
+***** Store Support Centres 
+***** Dark Stores 
+*** Publish events to Kafka
+*** Master Location Data (Workstream)
+**** Argos 
+**** Habitat
+**** Pharmacies
+**** Banks
+**** Travelmoney
+**** Partners
+*** Turn-off RMS 
+*** Hierarchy Maintenance
+*** Suport Locations (SSC, Recycling)
+*** Left out UDAs 
+*** Reference Data
+**** UDA 
+*** Store Opening process
+**** Shift downstream systems to Kafka
+***** yy
+** Data Services Platform
+
+''
+'''
+''
+
+@endmindmap
