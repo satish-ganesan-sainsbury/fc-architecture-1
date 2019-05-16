@@ -1,4 +1,5 @@
 @startmindmap
+!include ../included/config.puml
 * AAS:Ability to construct different hierarchies 
 ** BE: Merchandising
 ** BE: Finance

@@ -1,6 +1,6 @@
 @startmindmap
-!include config.puml
-
+'!includeurl https://raw.githubusercontent.com/satish-ganesan-sainsbury/fc-architecture/master/mindmap/included/config.puml
+!include ../included/config.puml
 title Purpose of Business Epics and Architectural Steel Thread
 * <b><size 20> Product
 

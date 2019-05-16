@@ -1,5 +1,5 @@
 @startmindmap
-!include ./config.puml
+!include ../included/config.puml
 
 title Purpose of Business Epics and Architectural Steel Thread
 * <b>Problem at hand
