@@ -2,8 +2,7 @@
 
 # Food Commercial Architecture - Architecture as Code
 
-> Repository consisting of architectural diagrams generated through plantuml 
-Food commercial architecture repository for Architecture as Code
+> Repository consisting of architectural diagrams generated through plantuml. 
 
 ## Why architecture-as-code?
 
