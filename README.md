@@ -40,3 +40,10 @@ PlantUML requires:
 ### Github
 
 * [Getting github access](https://sainsburys-confluence.valiantys.net/display/DC/GitHub#GitHub-GettingAccess) Register with github and get access from Pedro
+
+## Latest Content
+
+| Workstream 	| Diagram 	|                                Script                               	| Image                                                          	|                                          Description                                         	|
+|:----------:	|:-------:	|:-------------------------------------------------------------------:	|----------------------------------------------------------------	|:--------------------------------------------------------------------------------------------:	|
+| Integrated 	| Mindmap 	| [intmpProblemFocus.puml](integrated/mindmap/intmpProblemFocus.puml) 	| [intmpProblemFocus.svg](integrated/mindmap/dist/png/intmpProblemFocus.png) 	| Describes in high level the motivation and focus area for architecture team                  	|
+| Product    	| Mindmap 	| [prompBusinessEpicsAndSteelThread.puml](product/mindmap/puml/prompBusinessEpicsAndSteelThread.puml)                               	|[prompBusinessEpicsAndSteelThread.puml](product/mindmap/dist/png/prompBusinessEpicsAndSteelThread.png)                                                                 	| Identifies the business epics and steel thread that describe the scope of product workstream 	|
