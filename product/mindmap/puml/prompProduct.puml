@@ -1,7 +1,7 @@
 @startmindmap
-'!includeurl https://raw.githubusercontent.com/satish-ganesan-sainsbury/fc-architecture/master/mindmap/included/config.puml
+header Product Scope V0.1
 !include ../included/config.puml
-title Purpose of Business Epics and Architectural Steel Thread
+title Product Scope, Business Epics and Steel Threads
 * <b><size 20> Product
 
 Left Side

@@ -1,13 +1,13 @@
 @startmindmap
 !include ../included/config.puml
-
+header Problem Focus V0.1
 title Purpose of Business Epics and Architectural Steel Thread
 * <b>Problem at hand
 
 Left Side
 **  Domain level scope not completely understood - What is the full pie?
 *** Workstream level scope not completely understood - What is the share of the pie?
-**** Architectural and Engineering oprtimization not happening
+**** Architectural and Engineering oprtimizations required
 **** Incremental business value not demonstrated
 **** Velocity not clear 
 **** Velocity is not fast enough

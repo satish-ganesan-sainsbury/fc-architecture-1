@@ -5,9 +5,7 @@
 > Repository consisting of architectural diagrams generated through plantuml 
 Food commercial architecture repository for Architecture as Code
 
-## Overview
-
-### Why architecture-as-code?
+## Why architecture-as-code?
 
 * **Uneditable modelling artefacts**: It is common to see architecture and modelling artefacts published as images. When these artefacts are inherited or handed over, the original source from which these models were prepared are usually not available.
 
@@ -26,7 +24,19 @@ Architecture-as-Code addressses the above issues, providing:
 
 ## Set-up required
 
-Plantuml
-Editor and renderer
-Acecess Github
-## Diagrams covered
+### Plantuml
+
+PlantUML requires: 
+
+* java
+* [plantuml.jar](http://plantuml.com/download)
+* [Graphviz is optional. Required for sequence diagrams and activity diagrams](http://plantuml.com/graphviz-dot)
+
+### Editor and renderer
+
+* [Visual studio code](https://code.visualstudio.com/) is the preferred editor to edit code related 
+* [VS Code PlantUML Renderer Extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) is a VS Code marketplace extension to render diagrams from within VS Code
+
+### Github
+
+* [Getting github access](https://sainsburys-confluence.valiantys.net/display/DC/GitHub#GitHub-GettingAccess) Register with github and get access from Pedro
