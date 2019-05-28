@@ -30,7 +30,7 @@ package "JS" as packJS {
    package "Command Platform" as packCommandService {
      System(sysCommand, "Command Service", "GreenYellow", "haproxy","command")
      SystemDb(dbCommand, "Command DB", "Dedicated", "Brown","database","db" )
-     Rel_(sysCommand, dbCommand,"Dedicated datasource visible only to specific microservice", "->")
+     Rel_(sysCommand, dbCommand,"Dedicated datasource visible only to specific 'MASTER' microservice", "->")
    } 
    package "Data and Events" as packDataAndEvents{
         
@@ -41,9 +41,9 @@ package "JS" as packJS {
    package "Data Service Platform" as packDataServicePlatform {
     System(sysDataService, "Data Service", "GreenYellow", "haproxy","command")
     SystemDb(dbSlave, "Slave DB", "Dedicated", "Yellow","database","db" )
-    Rel_(dbCommand, sysKafka,"Publish data to intermediate stream", "-.>")
+    Rel_(dbCommand, sysKafka,"Publish data events to intermediate stream", "-.>")
     Rel_(sysKafka, dbSlave,"Publish data to slave data source", "-.>")
-    Rel_(sysDataService, dbSlave,  "Use data from slave data source", "->")
+    Rel_(sysDataService, dbSlave,  "Use data from slave data source", "<-")
    }
     
 
