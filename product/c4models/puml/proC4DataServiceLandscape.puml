@@ -1,0 +1,68 @@
+@startuml "PIM"
+title <color:DarkBlue>Architectural Steel Thread:System Landscape - Product Service\nEpic DS1: Publishing data from legacy data stores to Kafka Streams
+
+!include included/c4_custom_context.puml
+skinparam linetype polyline
+skinparam package{
+    nodesep 5
+    ranksep 5
+}
+skinparam wrapWidth 200
+skinparam maxMessageSize 200
+skinparam ArrowColor Black
+skinparam ArrowThickness 1
+
+LAYOUT_TOP_DOWN
+
+package "JS" as packJS {
+    package "Old World"  as packOldWorld{
+        package "Connected Datasources" as packConnectedDS {
+            SystemDb(sysLegacyDB, "p1.v9")
+            SystemDataSource(sysCubiScan, "Cubiscan", "Purple", "p2")
+        } 
+        package "Dis-connected Datasources" as packDisconnectedDS{
+            SystemDataSource(sysBrandBank, "BrandBank", "Brown", "p4")
+            SystemDataSource(sysEvolve, "Evolve", "Green", "p4")
+            SystemDataSource(sysVirtualDepot, "VirtualDepot", "Blue", "p3")
+        }
+    
+    }
+    package "Data and Events" as packDataAndEvents{
+        SystemACL(sysACL,"external")
+        SystemKafka(sysKafka, "Central Infrastructure")
+        Rel_(sysACL, sysKafka, "Load data to Kafka", "->")
+        Rel_(packConnectedDS, sysACL, "Extract data", "->")
+        Rel_(packDisconnectedDS, sysACL, "Extract data", "->")
+    }
+    sysVirtualDepot -[hidden]-> sysACL
+
+    package "FF clients" as packFF {
+        SystemFF(sysPricing, "Pricing", "v1") 
+        SystemFF(sysPromotion, "Promotion", "v1") 
+        Rel_(sysKafka, packFF, "Pull data", "-down->")
+        'Rel_(sysKafka, sysPricing, "Pull data", "<-")
+        'Rel_(sysKafka, sysWMS, "Pull data", "<-")
+    }
+
+    package "Non-FF clients" as packNonFF {
+        SystemDownStream(sysWMS, "Future WMS", "v1")
+        SystemDownStream(sysSmartShop, "Smart Shop", "v1")
+        SystemDownStream(sysAllergen, "Allergen Programme", "v1")
+        SystemDownStream(sysTogetherWith, "TogetherWith", "v1")
+        SystemDownStream(sysSupMDM, "SupplierMDM", "v1")
+
+        sysWMS -[hidden]> sysSmartShop
+        sysSmartShop -[hidden]> sysAllergen
+        sysAllergen-[hidden]> sysTogetherWith
+        sysTogetherWith -[hidden]> sysSupMDM
+        Rel_(sysKafka, packNonFF, "Pull data", "-down->")
+    } 
+
+    
+    sysCubiScan -[hidden]> sysKafka
+    sysKafka -[hidden]-> sysPromotion
+    sysPricing -[hidden]-> sysWMS
+}
+
+@enduml
+

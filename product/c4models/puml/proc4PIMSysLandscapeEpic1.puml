@@ -1,0 +1,53 @@
+@startuml "PIM"
+title <color:DarkBlue><b>System Landscape - PIM - Architectural MVP:\nEpic 1: Creating a dummy SKU in PIM and flowing to till
+
+!include included/C4_Custom_Context.puml
+skinparam linetype polyline
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 200
+skinparam ArrowColor Black
+skinparam ArrowThickness 1
+
+LAYOUT_TOP_DOWN
+
+Person_Ext(perExt,"External", "An external customer. e.g. supplier user")
+'rectangle "JS Enterprise"{
+ package "JS Enterprise"{
+    Person(perInt, "Internal", "An internal customer. e.g. category assistant")
+
+    Package "Future Food"{
+        SystemPIM(sysPIM, "v1.0")
+        Rel_(perInt, sysPIM, "1a.Manage Product for mastered attributes","-RIGHT->")
+    }
+    
+    package "Data and Events"{
+        SystemKafka(sysKafka, "Central Infrastructure")
+        SystemACL(sysACL,"external")
+        Rel_(sysPIM, sysKafka,"2. Submit events","-->")
+        Rel_(sysKafka, sysACL,"3. Process events","-RIGHT->")
+
+    }
+
+    package "Old World"{
+        SystemDb(sysLegacyDB, "v9")
+        SystemDownStream(sysDownstream, "webmethod+other")
+        SystemTill(sysTill)
+        Rel_(sysACL, sysLegacyDB,"4. Backfeed to legacy", "-DOWN->")
+        
+        Rel_(sysLegacyDB, sysDownstream, " ", "->")
+        Rel_(sysDownstream, sysTill, " ", "->")
+        Rel_(sysKafka, sysLegacyDB, "4a. Intermediate\lshort-cut", ".>>")
+    }
+    Rel_(perInt,sysLegacyDB, "1b.Manage Productfor non-mastered attributes", "-->")
+}
+Rel_(perExt, sysPIM, "1a.Manage Product for mastered attributes", "-->")
+
+Person_Ext(perExt1,"External", "An external customer. e.g. supplier user")
+Rel_(perExt1, sysLegacyDB,"1b. Manage Productfor non-mastered attributes", "-UP->")
+
+
+
+
+@enduml
+

@@ -1,0 +1,160 @@
+!define SPRITESURL https://raw.githubusercontent.com/rabelenda/cicon-plantuml-sprites/v1.0/sprites
+!define ICONURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.0.0
+!includeurl ICONURL/font-awesome/american_sign_language_interpreting.puml
+!includeurl ICONURL/font-awesome-5/database.puml
+!includeurl ICONURL/font-awesome/server.puml
+!includeurl ICONURL/font-awesome/television.puml
+!includeurl ICONURL/font-awesome/cloud.puml
+!includeurl ICONURL/font-awesome/tasks.puml
+
+
+!includeurl SPRITESURL/kafka.puml
+!includeurl SPRITESURL/haproxy.puml
+!includeurl SPRITESURL/cog.puml
+
+!define TECHN_FONT_SIZE 12
+!define MAIN_FONT_SIZE 10
+
+!define LAYOUT_TOP_DOWN top to bottom direction
+skinparam ArrowFontSize 10
+
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+skinparam defaultTextAlignment center
+skinparam shadowing false
+skinparam rectangle<<kafka>> {
+    FontName Papyrus
+    FontSize MAIN_FONT_SIZE
+    StereotypeFontColor Black
+    BackgroundColor White
+    FontColor Black
+    BorderColor Black
+    BorderThickness 4
+}
+
+skinparam node<<acl>> {
+    FontName Papyrus
+    FontSize MAIN_FONT_SIZE
+    StereotypeFontColor Purple
+    BackgroundColor LightGrey
+    FontColor Purple
+    BorderColor Purple
+    BorderThickness 4
+}
+
+skinparam database<<db>> {
+    FontName Papyrus
+    FontSize MAIN_FONT_SIZE
+    StereotypeFontColor Purple
+    BackgroundColor LightGrey
+    FontColor SaddleBrown
+    BorderColor SaddleBrown
+    BorderThickness 4
+}
+
+skinparam node<<downstream>> {
+    FontName Papyrus
+    FontSize MAIN_FONT_SIZE
+    StereotypeFontColor Purple
+    BackgroundColor LightGrey
+    FontColor Purple
+    BorderColor Purple
+    BorderThickness 4
+}
+
+skinparam rectangle<<productService>> {
+    FontName Papyrus
+    FontSize MAIN_FONT_SIZE
+    StereotypeFontColor DarkSlateBlue
+    'BackgroundColor LightGrey
+    FontColor DarkBlue
+    BorderColor DarkBlue
+    BorderThickness 4
+}
+
+skinparam rectangle<<pim>> {
+    'BackgroundColor LightGrey
+    FontName Papyrus
+    FontSize MAIN_FONT_SIZE
+    StereotypeFontColor DarkSlateBlue
+    FontColor MidnightBlue
+    BorderColor MidnightBlue
+    BorderThickness 4
+}
+
+
+skinparam actor<<internal>>{
+    BorderColor DarkBlue
+    FontSize MAIN_FONT_SIZE
+    FontColor DarkBlue
+    FontName Papyrus
+    StereotypeFontColor Grey
+}
+
+skinparam actor<<external>>{
+    BorderColor DarkGrey
+    FontSize MAIN_FONT_SIZE
+    FontColor Black
+    FontName Papyrus
+    StereotypeFontColor Grey
+}
+
+!definelong System(e_alias, e_label, e_techn, e_color, e_sprite, e_st)
+rectangle "==e_label\n<color:e_color><$e_sprite></color>\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<e_st>> as e_alias
+!enddefinelong
+
+!definelong System(e_alias, e_label,  e_color, e_sprite, e_st)
+rectangle "==e_label\n<color:e_color><$e_sprite></color>" <<e_st>> as e_alias
+!enddefinelong
+
+!definelong SystemNode(e_alias, e_label, e_techn, e_color, e_sprite, e_st)
+node "==e_label\n<color:e_color><$e_sprite></color>\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<e_st>> as e_alias
+!enddefinelong
+
+!definelong SystemNode(e_alias, e_label, e_color, e_sprite, e_st)
+node "==e_label\n<color:e_color><$e_sprite></color>" <<e_st>> as e_alias
+!enddefinelong
+
+!definelong SystemDb(e_alias, e_label, e_techn, e_color, e_sprite, e_st)
+database "==e_label\n<color:e_color><$e_sprite></color>\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<e_st>> as e_alias
+!enddefinelong
+
+!define Person(e_alias, e_label) actor "==e_label" <<internal>> as e_alias
+!define Person(e_alias, e_label, e_descr) actor "==e_label\n<size:TECHN_FONT_SIZE>e_descr</SIZE>" <<internal>> as e_alias
+
+!define Person_Ext(e_alias, e_label) actor "==e_label" <<external>> as e_alias
+!define Person_Ext(e_alias, e_label, e_descr) actor "==e_label\n<size:TECHN_FONT_SIZE>e_descr</SIZE>" <<external>> as e_alias
+
+
+!define SystemKafka(e_alias) System(e_alias, "Kafka Infrastructure", "Black", "kafka","kafka")
+!define SystemKafka(e_alias,e_techn) System(e_alias, "Kafka Infrastructure", e_techn, "Black", "kafka","kafka")
+
+!define SystemACL(e_alias) SystemNode(e_alias, "ACL", "Purple", "american_sign_language_interpreting","acl")
+!define SystemACL(e_alias,e_techn) SystemNode(e_alias, "ACL", e_techn,"Purple", "american_sign_language_interpreting","acl")
+!define SystemDb(e_alias, e_techn) SystemDb(e_alias, "Legacy DB\n-RMS", e_techn, "Brown","database","db" )
+!define SystemDataSource(e_alias, e_label, e_color, e_techn) SystemDb(e_alias, e_label, e_techn, e_color,"database","db" )
+
+!define SystemProductService(e_alias) System(e_alias, "Product Service", "Blue", "haproxy","productService")
+!define SystemProductService(e_alias, e_techn) System(e_alias, "Product Service", e_techn, "Blue", "haproxy","productService")
+
+!define SystemPIM(e_alias) System(e_alias, "Product Information Management", "MediumBlue", "haproxy","pim")
+!define SystemPIM(e_alias, e_techn) System(e_alias, "Product Information Management", e_techn, "MediumBlue", "haproxy","pim")
+!define SystemPIM(e_alias, e_label, e_techn) System(e_alias, e_label, e_techn, "MediumBlue", "haproxy","pim")
+
+!define SystemCommand(e_alias) System(e_alias, "Command Service", "GreenYellow", "haproxy","command")
+!define SystemCommand(e_alias, e_techn) System(e_alias, "Command Service", "GreenYellow", "haproxy","command")
+!define SystemCommand(e_alias, e_label, e_techn) System(e_alias, "Command Service", "GreenYellow", "haproxy","command")
+
+!define SystemFF(e_alias, e_label, e_techn) System(e_alias, e_label, e_techn, "Green", "haproxy","FF")
+
+!define SystemDownStream(e_alias) SystemNode(e_alias, "Downstream System", "Purple", "server","downstream")
+!define SystemDownStream(e_alias, e_techn) SystemNode(e_alias, "Downstream System", e_techn, "Purple", "server","downstream")
+!define SystemDownStream(e_alias, e_label, e_techn) SystemNode(e_alias, e_label, e_techn, "Purple", "server","downstream")
+
+
+!define SystemTill(e_alias) SystemNode(e_alias, "Till", "Purple", "television","downstream")
+!define SystemTill(e_alias, e_techn) SystemNode(e_alias, "Till", e_techn, "Purple", "television","downstream")
+
+!define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : "==e_label"
+'
