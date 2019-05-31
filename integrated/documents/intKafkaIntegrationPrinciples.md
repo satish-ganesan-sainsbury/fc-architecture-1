@@ -25,7 +25,7 @@ Example: Product data services attributes could be organized into allergens, vol
 
 7. ***Enable choices in Data Consumption***: The platform should provide for flexibility to the consumers for consuming data. At the minimum the consumers should be offered:
    * Push based data access using a streaming platform
-   * Pull(query) based data access using a API (not applicable for Data & Events)
+   * Pull(query) based data access using a API (***not applicable for Data & Events***)
 
 8. ***KISS for Pull based APIs***: The pull based access should follow the Keep It Simple principle and should follow the universality principle:
    * Projection choices to be limited to stitching together groups of attributes

@@ -1,5 +1,5 @@
 @startuml
-!include included/er_diagram.puml
+!include er_diagram.puml
 'skinparam linetype polyline
 skinparam wrapWidth 150
 
@@ -9,37 +9,44 @@ Table(tabProduct, "Product\n(Product in JS)") {
   primary_key(mediated_unique_id) INTEGER
 }
 
-Table(tabProductIdentity, "Product Identity\n(Uniquely identifying the products)")
-Table(tabProductBrand, "Product Brand\n(Product Brand in JS)")
-Table(tabSupplierProduct, "Supplier Product")
-Table(tabProductLifeSpan, "Product Lifespan")
 Table(tabUnitVolumetric, "Unit Volumetric")
 Table(tabUnitDimensionsAndWeights, "Unit Dimensions and Weights")
-Table(tabSaleRestriction, "Sale Restriction")
+Table(tabProductIdentification, "Product Identity\n(Uniquely identifying the products)")
+Table(tabProductBrand, "Product Brand\n(Product Brand in JS)")
+Table(tabProductSaleRestriction, "Sale Restriction")
 Table(tabSellingCharecteristic, "Selling Characteristic" )
-Table(tabProductClassification, "Product Classification")
-Table(tabProductSubstituition, "Product Substituion")
-Table(tabProductDecommision, "Product Decommission")
-Table(tabSeasonPhase, "Season Phase")
-Table(tabPackage, "Package")
-Table(tabLegislation, "Product Legislation")
+Table(tabProductLifeSpan, "Product Lifespan")
+Table(tabSupplierProduct, "Supplier Product")
+Table(tabProductQuality, "Product Quality")
 Table(tabMultiPack, "MultiPack")
+Table(tabLegislation, "Product Legislation")
+Table(tabPackage, "Package")
+Table(tabSeasonPhase, "Season Phase")
+Table(tabProductDocumentation, "Product Documentation")
+Table(tabProductClassification, "Product Classification")
+Table(tabProductDecommision, "Product Decommission")
+Table(tabProductSubstituition, "Product Substituion")
 
 
-tabProduct "1" --DOWN{ "*" tabProductIdentity
+
+tabProduct "1" --DOWN{ "*" tabProductIdentification
 tabProduct "1" --DOWN{ "*" tabSupplierProduct
 tabProduct "1" --DOWN{ "*" tabProductBrand 
 tabProduct "1" --DOWN{ "*" tabProductLifeSpan
 tabProduct "1" --DOWN{ "*" tabProductDecommision
 tabProduct "1" --DOWN{ "*" tabSeasonPhase
+tabProduct "1" --DOWN{ "*" tabProductDocumentation
 tabProduct "1" --LEFT{ "*" tabMultiPack
 tabProduct "1" --RIGHT{ "*" tabUnitVolumetric
 tabProduct "1" --UP{ "*" tabUnitDimensionsAndWeights
-tabProduct "1" --UP{ "*" tabSaleRestriction
+tabProduct "1" --UP{ "*" tabProductSaleRestriction
 tabProduct "1" --UP{ "*" tabSellingCharecteristic
 tabProduct "1" --UP{ "*" tabProductSubstituition
 tabProduct "1" --UP{ "*" tabPackage
 tabProduct "1" --UP{ "*" tabLegislation
+tabProduct "1" --UP{ "*" tabProductClassification
+tabProduct "1" --UP{ "*" tabProductQuality
+
 
 
 @enduml

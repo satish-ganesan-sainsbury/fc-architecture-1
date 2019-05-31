@@ -9,14 +9,19 @@
 
 BASEDIR=$(pwd)
 echo 'Base Dir: ' $BASEDIR
-mkdir -p $BASEDIR/$1/$2/dist
+export SVG="$BASEDIR/dist/$1/$2/svg/"
+export PNG="$BASEDIR/dist/$1/$2/png/"
+mkdir -p "$SVG"
+mkdir -p "$PNG"
 
-for FILE in $BASEDIR/$1/$2/puml/$3 
+for FILE in "$BASEDIR/$1/$2/puml/$3" 
 do
- echo 'File: ' $FILE
- java -jar $PLANTUML/plantuml.jar -tsvg -output $BASEDIR/$1/$2/dist/svg $FILE
- #java -jar $PLANTUML/plantuml.jar -tpdf -output $BASEDIR/$1/$2/dist/pdf $FILE
- java -jar $PLANTUML/plantuml.jar -tpng -output $BASEDIR/$1/$2/dist/png $FILE
+  echo 'File: ' "$FILE"
+  echo "$SVG"
+  echo "$PNG"
+  java -Dplantuml.include.path=included -jar "$PLANTUML/plantuml.jar" "$1/$2/puml/$3" -tsvg -output "$SVG" 
+  java -Dplantuml.include.path=included -jar "$PLANTUML/plantuml.jar" "$1/$2/puml/$3" -tpng -output "$PNG"
 done
+
 
 echo done
