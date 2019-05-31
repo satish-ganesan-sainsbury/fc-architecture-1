@@ -1,7 +1,7 @@
-@startuml "PIM"
+@startuml 
 title <color:DarkBlue>Architectural Steel Thread:System Landscape - Product Service\nEpic DS1: Publishing data from legacy data stores to Kafka Streams
 
-!include included/c4_custom_context.puml
+!include c4_custom_context.puml
 skinparam linetype polyline
 skinparam package{
     nodesep 5

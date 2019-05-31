@@ -1,5 +1,5 @@
-@startuml "GenericCommandAndDataService"
-!include included/c4_custom_context.puml
+@startuml 
+!include c4_custom_context.puml
 
 header "Generic Command And Data Service"
 title <color:DarkBlue>System Context: Generic Command and Data Service

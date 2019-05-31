@@ -1,5 +1,5 @@
 @startmindmap
-!include ../included/config.puml
+!include config.puml
 * Locations
 ** Master Data
 *** Maintenance Activities (Done only in RMS) 

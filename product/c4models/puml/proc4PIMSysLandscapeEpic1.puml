@@ -1,7 +1,7 @@
-@startuml "PIM"
+@startuml 
 title <color:DarkBlue><b>System Landscape - PIM - Architectural MVP:\nEpic 1: Creating a dummy SKU in PIM and flowing to till
 
-!include included/C4_Custom_Context.puml
+!include C4_Custom_Context.puml
 skinparam linetype polyline
 
 skinparam wrapWidth 200
@@ -44,10 +44,6 @@ Person_Ext(perExt,"External", "An external customer. e.g. supplier user")
 Rel_(perExt, sysPIM, "1a.Manage Product for mastered attributes", "-->")
 
 Person_Ext(perExt1,"External", "An external customer. e.g. supplier user")
-Rel_(perExt1, sysLegacyDB,"1b. Manage Productfor non-mastered attributes", "-UP->")
-
-
-
 
 @enduml
 
