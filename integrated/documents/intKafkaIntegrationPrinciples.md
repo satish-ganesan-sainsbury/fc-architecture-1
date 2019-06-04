@@ -2,7 +2,7 @@
 
 1. ***Publish only once***: Each raw data source or a consumable producer will publish events only once, irrespective of the number of consumers. Any consumer should have access to entirety of the event store from the point of full refresh
 
-2. ***Subscriber to event store can be an unknown future subscriber***: A subscriber to event store can arrive at a future point in time and there should be able to use the existing event store in entirety from the last full refresh. Any new consumer should not incur additional data ingestion costs
+2. ***Subscriber to event store can be an unknown future subscriber***: A subscriber to event store can arrive at a future point in time and there should be able to use the existing event store in entirety from the last full refresh. Any new consumer should not incur additional data ingestion costs.
 
 3. ***Align responsibilities by upstream and downstream pipelines***: Data Services Platforms would be segregated to two pipelines.
    * **Raw data pipeline(upstream) -> Data and Events team**: Raw data sourced to be maintained in their original format in the raw pipeline. The *Data & Events team* is responsible for landing the data into the Kafka topic from the data source
