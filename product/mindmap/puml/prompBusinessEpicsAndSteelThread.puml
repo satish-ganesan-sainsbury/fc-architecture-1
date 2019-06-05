@@ -1,6 +1,6 @@
 @startmindmap
 header Product Scope V0.1
-!include ../included/config.puml
+!include config.puml
 title Product Scope, Business Epics and Steel Threads
 * <b><size 20> Product
 

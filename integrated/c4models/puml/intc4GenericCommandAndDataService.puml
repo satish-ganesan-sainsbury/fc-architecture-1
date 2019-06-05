@@ -1,5 +1,5 @@
-@startuml 
-!include c4_custom_context.puml
+@startuml intC4GenericCommandAndDataService
+!include included/c4_custom_context.puml
 
 header "Generic Command And Data Service"
 title <color:DarkBlue>System Context: Generic Command and Data Service
@@ -32,23 +32,34 @@ package "JS" as packJS {
      SystemDb(dbCommand, "Command DB", "Dedicated", "Brown","database","db" )
      Rel_(sysCommand, dbCommand,"Dedicated datasource visible only to specific 'MASTER' microservice", "->")
    } 
+
+   package "Client Systems" as packClient {
+    SystemDownStream(sysDown, "Downstream Systems", "Internal and External")
+   }
+
    package "Data and Events" as packDataAndEvents{
         
         SystemKafka(sysKafka, "Central Infrastructure")
+        
    }
 
 
-   package "Data Service Platform" as packDataServicePlatform {
-    System(sysDataService, "Data Service", "GreenYellow", "haproxy","command")
+   package "API Service" as packAPIPlatform {
+    System(sysAPIService, "API Service", "GreenYellow", "haproxy","command")
     SystemDb(dbSlave, "Slave DB", "Dedicated", "Yellow","database","db" )
     Rel_(dbCommand, sysKafka,"Publish data events to intermediate stream", "-.>")
     Rel_(sysKafka, dbSlave,"Publish data to slave data source", "-.>")
     Rel_(sysDataService, dbSlave,  "Use data from slave data source", "<-")
    }
-    
+   Rel_(sysKafka, sysDown, "1. Pushes data to clients", "-LEFT->")
+   Rel_(sysAPIService, sysDown, "2. Pulls data from service", "-UP->")
+   
 
     sysCommand -[hidden]- sysKafka
-    sysKafka -[hidden]- sysDataService
+    sysKafka -[hidden]- sysAPIService
     
 }
+legend
+Data Service constitures both pull and push mechanisms of serving data to clients
+endlegend
 @enduml

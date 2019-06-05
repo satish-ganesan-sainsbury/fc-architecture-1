@@ -1,7 +1,8 @@
 {
     "editor.tabSize": 1,
     "plantuml.render": "local",
-    "plantuml.includepaths": ["mindmap/included/", "included"],
-    "plantuml.exportOutDir": "dist/"
+    "plantuml.includes": ["included"],
+    "plantuml.includepaths": ["included"],
+    "plantuml.exportOutDir": "dist/"    
  
 }
