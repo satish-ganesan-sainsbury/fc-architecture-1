@@ -8,10 +8,12 @@ Each micro-service broadly would contain two broad areas:
 * Command Service: Service that masters data and enables Create, Update and Delete functionalities to the master data
 * Data Service: A 100% slave service, which publishes data related to domain to the wider enterprise. In a monolith data is tightly coupled and accessible to all domains without restriction. Data Services is the glue through which each of the micro-services will communicate with one another. 
 
+<!-- <p align="center">
+  <img src="/dist/integrated/c4models/puml/intc4GenericCommandAndDataService/intC4GenericCommandAndDataService.png?raw=true width="256"/>
+</p> -->
 <p align="center">
-  <img src="/dist/integrated/c4models/puml/intc4GenericCommandAndDataService/intC4GenericCommandAndDataService.png width="256"/>
-</p>
-
+  <img src="../../dist/integrated/c4models/puml/intc4GenericCommandAndDataService/intC4GenericCommandAndDataService.png" width="40%">
+ </p>
 **What is a Universal Data Service (UDS)?**
 
 * Acts as a 100% re-creatable, 100% re-playable, 100% slave and broker of master data.
