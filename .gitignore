@@ -1,2 +1,4 @@
 */colors.puml
 .DS_STORE
+dist/included
+dist/included/*

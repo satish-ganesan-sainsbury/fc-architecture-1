@@ -49,7 +49,7 @@ package "JS" as packJS {
     SystemDb(dbSlave, "Slave DB", "Dedicated", "Yellow","database","db" )
     Rel_(dbCommand, sysKafka,"Publish data events to intermediate stream", "-.>")
     Rel_(sysKafka, dbSlave,"Publish data to slave data source", "-.>")
-    Rel_(sysDataService, dbSlave,  "Use data from slave data source", "<-")
+    Rel_(sysAPIService, dbSlave,  "Use data from slave data source", "<-")
    }
    Rel_(sysKafka, sysDown, "1. Pushes data to clients", "-LEFT->")
    Rel_(sysAPIService, sysDown, "2. Pulls data from service", "-UP->")

@@ -47,4 +47,4 @@ Each micro-service broadly would contain two broad areas:
 * Will adopting point-to-point interaction create a bottleneck for the Data and Events
 
 
-[command_data_split]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[command_data_split]: https://github.com/JSainsburyPLC/fc-architecture/blob/master/dist/integrated/c4models/puml/intc4GenericCommandAndDataService/intC4GenericCommandAndDataService.png "Command and Data Service"
