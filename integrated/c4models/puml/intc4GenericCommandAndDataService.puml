@@ -4,6 +4,7 @@
 header "Generic Command And Data Service"
 title <color:DarkBlue>System Context: Generic Command and Data Service
 
+scale 1/2
 
 skinparam linetype polyline
 skinparam package{

@@ -8,7 +8,9 @@ Each micro-service broadly would contain two broad areas:
 * Command Service: Service that masters data and enables Create, Update and Delete functionalities to the master data
 * Data Service: A 100% slave service, which publishes data related to domain to the wider enterprise. In a monolith data is tightly coupled and accessible to all domains without restriction. Data Services is the glue through which each of the micro-services will communicate with one another. 
 
-![alt text][command_data_split]
+<p align="center">
+  <img src="/dist/integrated/c4models/puml/intc4GenericCommandAndDataService/intC4GenericCommandAndDataService.png width="256"/>
+</p>
 
 **What is a Universal Data Service (UDS)?**
 
@@ -47,4 +49,5 @@ Each micro-service broadly would contain two broad areas:
 * Will adopting point-to-point interaction create a bottleneck for the Data and Events
 
 
-[command_data_split]: https://github.com/JSainsburyPLC/fc-architecture/blob/master/dist/integrated/c4models/puml/intc4GenericCommandAndDataService/intC4GenericCommandAndDataService.png "Command and Data Service"
+[command_data_split]: 
+</p> 
