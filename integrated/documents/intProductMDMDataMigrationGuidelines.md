@@ -33,16 +33,16 @@ Given the above state of Product data in the enterprise, data migration can be c
 
  * **Objective**: Consolidate MDM as single source of truth
  * MDM platform to source data from the best data sources in the enterprise (for data already migrated). Example:
-  * Case volumetrics (Food) - Virtual Depot
-  * Case volumetrics (Non-Food) - EBX
-  * Specification (Branded) - Brandbank
-  * Specification (Non-Branded) - Evolve
+   * Case volumetrics (Food) - Virtual Depot
+   * Case volumetrics (Non-Food) - EBX
+   * Specification (Branded) - Brandbank
+   * Specification (Non-Branded) - Evolve
  * Continue to back-feed data into RMS
  * Additionally attributes that are operationalized in MDM and not available in RMS need to be fed back to the relevant data systems
  * Implement data profiling to understand and fix on-going data issues
  * Target period 3+ months
  * Open question:
-  * Since, downstream systems are still correcting data, we have two places where data potentially will be mastered. How do we handle this situation?
+   * Since, downstream systems are still correcting data, we have two places where data potentially will be mastered. How do we handle this situation?
 
 ### Phase-3 Downstream systems are fed directly from MDM
 
@@ -50,7 +50,7 @@ Given the above state of Product data in the enterprise, data migration can be c
  * Once all categories are migrated to MDM platform and Data standards are to the agreed expectation, RMS is ready to be retired.
  * Retirement is dependent on whether all downstream systems have switched to reading data from Kafka
  * **Risk**:
-  * Need to demonstrate downstream systems can continue working based on data available in Kafka Streams
+   * Need to demonstrate downstream systems can continue working based on data available in Kafka Streams
 
 ## Data Migration Considerations
 
@@ -59,7 +59,7 @@ In all of the three phases of iterations Data Migration Considerations need to b
 ### Data Definition Alignment
 
 * Aligning legacy data platform data to MDM data definition as data is migrated. 
-* Example: _IsOwnbrand_ fields can be null in legacy system but may have to have a compulsory boolean value
+* Example: _IsOwnbrand_ fields can be null in legacy system but may have to have a compulsory boolean value in MDM
 * Expected implementation: From _Phase 1_
 
 ### Consistency
@@ -70,10 +70,10 @@ In all of the three phases of iterations Data Migration Considerations need to b
 
 ### Completeness
 
-* Completeness is defined along two axis. At every iteration, each of these axis are defined freshly and that definition is used as reference for measuring effectiveness
+* Completeness is defined along two axis. At every iteration, completeness for each of these axis are defined freshly and that definition is used as reference for measuring effectiveness
   * _Number of SKUs_: After each migration the number of SKUs targeted should have transitioned over to the new MDM platform
     * Expected implementation: From _Phase 1_
-  * _Correctness of Attributes_: For each SKU, The set of attributes targeted or a particular phase should contain appropriate data. _Appropriateness could also be defined as holding the same data as in RMS even if that data has issues_
+  * _Correctness of Attributes_: For each SKU, The set of attributes targeted for a particular phase should contain appropriate data. _Appropriateness could also be defined as holding the same data as in RMS even if that data has issues_
     * Expected implementation: RMS attributes in _Phase 1_. Other data sources in _Phase 2_
 
 ### Accuracy
