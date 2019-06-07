@@ -19,7 +19,7 @@
 
 Given the above state of Product data in the enterprise, data migration can be completed using the following iterative cycle: 
 
-### Phase-1 Maintain Data Status-Quo
+### Phase-1 On-boarding to MDM platform with minimal intervention to data issues
 
  * **Objective**: On-board MDM data platform
  * Data sourced solely from RMS
@@ -46,7 +46,7 @@ Given the above state of Product data in the enterprise, data migration can be c
 
 ### Phase-3 Downstream systems are fed directly from MDM
 
- * **Objective**: Retiring RMS
+ * **Objective**: Impact analysis on data issues when RMS is retied and data is read directly from MDM
  * Once all categories are migrated to MDM platform and Data standards are to the agreed expectation, RMS is ready to be retired.
  * Retirement is dependent on whether all downstream systems have switched to reading data from Kafka
  * **Risk**:
@@ -58,7 +58,7 @@ In all of the three phases of iterations Data Migration Considerations need to b
 
 ### Data Definition Alignment
 
-* Aligning legacy data platform data to MDM data definition as data is migrated. 
+* Aligning legacy data platform data to master data definition (as defined within the MDM platform), as data is migrated.
 * Example: _IsOwnbrand_ fields can be null in legacy system but may have to have a compulsory boolean value in MDM
 * Expected implementation: From _Phase 1_
 

@@ -1,4 +1,4 @@
-@startuml 
+@startuml proC4DataServiceLandscape
 title <color:DarkBlue>Architectural Steel Thread:System Landscape - Product Service\nEpic DS1: Publishing data from legacy data stores to Kafka Streams
 
 !include c4_custom_context.puml
